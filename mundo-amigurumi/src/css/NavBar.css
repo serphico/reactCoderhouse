@@ -1,0 +1,40 @@
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 1% 2% 1% 2%;
+  background-color: cornflowerblue;
+}
+
+header .logoDesk {
+  width: 8%;
+}
+
+header .logoMobile {
+  display: none;
+  width: 30%;
+}
+
+header .menu {
+  width: 30%;
+  margin: 0 auto;
+}
+
+header .menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+
+header .menu ul a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}
+
+header .menu ul :hover {
+  color: firebrick;
+}
