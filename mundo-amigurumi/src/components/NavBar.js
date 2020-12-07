@@ -3,7 +3,7 @@ import logo from '../assets/img/NavBar/logo.svg';
 import logo_m from '../assets/img/NavBar/logo-m.svg';
 import '../css/NavBar.css'
 
-const Header = () => {
+const NavBar = () => {
 return(
     <header>
         <img className = "logoDesk" src={logo}/>
@@ -20,4 +20,4 @@ return(
 
 }
 
-export default Header;
+export default NavBar;

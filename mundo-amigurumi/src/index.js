@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import NavBar from './components/NavBar';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-
-let App = () => <h1>Hola mundo!</h1>;
-
 
 ReactDOM.render(
   <React.StrictMode>
-    <>
-      <NavBar/>
+    <>      
       <App />
     </>
   </React.StrictMode>,

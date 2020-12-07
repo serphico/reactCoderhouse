@@ -1,7 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import NavBar from './components/NavBar';
 
-function App() {
+const App = () => {
+  return (<>
+    <NavBar/>
+    
+    <h1>Hola mundo!</h1>
+    </>);
+
+}
+
+/*function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +29,6 @@ function App() {
       </header>
     </div>
   );
-}
+}*/
 
 export default App;
