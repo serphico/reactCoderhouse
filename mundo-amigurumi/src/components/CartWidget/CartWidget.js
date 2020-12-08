@@ -1,6 +1,6 @@
 import React from "react";
 import { IoCart } from 'react-icons/io5'
-import '../sass/CartWidget.scss'
+import './CartWidget.scss'
 
 
 const CartWidget = () => {

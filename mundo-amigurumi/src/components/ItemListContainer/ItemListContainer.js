@@ -1,5 +1,5 @@
 import React from "react";
-import '../sass/ItemListContainer.scss'
+import './ItemListContainer.scss'
 
 const ItemListContainer = (props) => {
     return(
