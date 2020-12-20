@@ -3,22 +3,19 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import './ItemCount.scss'
 
-const ItemCount = (props) => {
-
-    const initial = parseInt(props.initial);
-    const stock = parseInt(props.stock);
+const ItemCount = ({stock,initial}) => {
 
     const [count, setCount] = React.useState(initial);
 
     const countAdd = () => {
-           if(count < stock && count > 0){
+           if(count < stock){
             setCount(count + 1 );
            }
     }
 
     const countRemove = () => {
 
-        if(count > initial && count > 0){
+        if(count > initial){
             setCount(            
                 count - 1            
                 );

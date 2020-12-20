@@ -7,7 +7,7 @@ const ItemListContainer = (props) => {
     return(
         <section>
             <h1>{props.greeting}</h1>
-            <ItemCount stock='5' initial='0'/>
+            <ItemCount stock={5} initial={1}/>
             <Button variant="contained" color="primary" >
                  Hello World
             </Button>
