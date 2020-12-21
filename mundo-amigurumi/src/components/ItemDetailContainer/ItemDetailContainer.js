@@ -16,7 +16,7 @@ const getItems = new Promise((res, rej)=>{
                 {
                    "id":2,
                    "title":"Item2",
-                   "pictureUrl":"http://via.placeholder.com/250",
+                   "pictureUrl":"http://via.placeholder.com/450",
                    "description":"No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas \"Letraset\".",
                    "price":"$1000"
                 }
@@ -28,20 +28,28 @@ const getItems = new Promise((res, rej)=>{
 
 const ItemDeteailContainer = () =>{
 
-    const [loading, setLoading] = React.useState(false)
-    const [itemDetailResq, setItemDetailResq] = React.useState([])
+    const [itemDetailResq, setItemDetailResq] = React.useState()
 
     React.useEffect(()=>{
-        setLoading(true)
-        getItems.then((itemDetail)=>{
-            setItemDetailResq(itemDetail)
+        getItems.then((res)=>{
+            setItemDetailResq(res[0])
         })
 
     },[])
-
+    console.log(itemDetailResq)
     return(
         <>
-            {loading ? <div>Loading</div> :  <ItemDetail itemDetailResq={itemDetailResq}/>}
+            {itemDetailResq === undefined ? (
+        <p>loading</p>
+      )  : (
+        <ItemDetail
+          id={itemDetailResq.id}
+          title={itemDetailResq.title}
+          pictureUrl={itemDetailResq.pictureUrl}
+          description={itemDetailResq.description}
+          price={itemDetailResq.price}
+        />
+      )}
             
         </>
     )

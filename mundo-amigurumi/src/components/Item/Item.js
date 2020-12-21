@@ -3,8 +3,6 @@ import './Item.scss'
 
 const Item = ({id, title, pictureUrl, price})=>{
 
-    console.log(title,pictureUrl,price)
-
     return(
         <div>
             <h2>{title}</h2>

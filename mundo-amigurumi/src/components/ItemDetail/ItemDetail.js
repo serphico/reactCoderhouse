@@ -1,27 +1,26 @@
 import React from 'react'
 import './ItemDetail.js'
 
-const ItemDetail = ({itemDetailResq}) =>{
+const ItemDetail = ({key, title, description, pictureUrl, price}) =>{
 
-    const [itemDetail, setItemDetail] = React.useState(false)
+    console.log(title,pictureUrl,price,description)
 
-    const [itemDetailRes, setItemDetailRes] = React.useState([])
-
-    React.useEffect(()=>{
-
-        setItemDetail(true)
-
-        setItemDetailRes(console.log(itemDetailRes))
-
-    },[])
-
-    
 
     return(
         <>
-            {itemDetail ? <p>Loading</p> : <div>
-                
-                </div>}
+        <div className='itemContainerInfo'>
+            <div>
+                <img src={pictureUrl} alt="imagen del producto"/>
+            </div>
+            <div>
+                <h2>{title}</h2>
+                <span>{price}</span>
+            </div>
+        </div>
+
+        <div className='itemContainerDesc'>
+            <p>{description}</p>
+        </div>
         </>
     )
 }
