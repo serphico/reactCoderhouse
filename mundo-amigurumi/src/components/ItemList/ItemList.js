@@ -8,10 +8,23 @@ const ItemList = ()=>{
 
   React.useEffect(()=>{
             setTimeout(() => {
-                fetch('./data/item.json')    
-
-        .then((resultado)=>{
-            return resultado.json()
+        new Promise((res,rej)=>{
+            res(
+                [
+                    {
+                       "id":1,
+                       "title":"Item1",
+                       "pictureUrl":"http://via.placeholder.com/250",
+                       "price":"$500"
+                    },
+                    {
+                       "id":2,
+                       "title":"Item2",
+                       "pictureUrl":"http://via.placeholder.com/250",
+                       "price":"$1000"
+                    }
+                 ]  
+            )
         })
         .then((resultado) => {
 
