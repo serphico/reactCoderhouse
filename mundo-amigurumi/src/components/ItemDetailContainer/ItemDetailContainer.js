@@ -29,19 +29,20 @@ const getItems = new Promise((res, rej)=>{
 const ItemDeteailContainer = () =>{
 
     const [loading, setLoading] = React.useState(false)
-    const [itemDetail, setItemDetail] = React.useState([])
+    const [itemDetailResq, setItemDetailResq] = React.useState([])
 
     React.useEffect(()=>{
         setLoading(true)
         getItems.then((itemDetail)=>{
-           console.log(itemDetail)
+            setItemDetailResq(itemDetail)
         })
 
     },[])
 
     return(
         <>
-            {itemDetail.length === 0 ? <h1>No estoy cargado</h1> : null}
+            {loading ? <div>Loading</div> :  <ItemDetail itemDetailResq={itemDetailResq}/>}
+            
         </>
     )
 

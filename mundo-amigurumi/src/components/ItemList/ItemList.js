@@ -2,14 +2,9 @@ import React from "react";
 import './ItemList.scss'
 import Item from '../Item/Item'
 
-const ItemList = ()=>{
-
-  const [itemListState, setItemListState] = React.useState([]);
-
-  React.useEffect(()=>{
-            setTimeout(() => {
-        new Promise((res,rej)=>{
-            res(
+const listProduct = new Promise ((res,rej)=>{
+    setTimeout(() => {
+              res(
                 [
                     {
                        "id":1,
@@ -25,27 +20,38 @@ const ItemList = ()=>{
                     }
                  ]  
             )
-        })
-        .then((resultado) => {
-
-            setItemListState(
-                resultado
-            )
-                 
-        })
     }, 2000)
+    })
+
+const ItemList =()=>{
+
+    const [itemListState, setItemListState] = React.useState([]);
+
+    React.useEffect(()=>{
+        listProduct.then((res)=>{
+            setItemListState(res)
+        })
     },[])
 
-  
     return(
         <>
         {itemListState.length === 0 ? <p>loading</p> : null}
-        <Item item={itemListState}>
-            
-        </Item>
+        {
+            itemListState.map((dataItem, index)=>{
+                return(
+                    <Item key={dataItem.id}
+                    title={dataItem.title}
+                    pictureUrl={dataItem.pictureUrl}
+                    price={dataItem.price}        
+                    />
+                )
+            }
+
+        )
+        }
+
         </>
     )
-
 }
 
 export default ItemList;

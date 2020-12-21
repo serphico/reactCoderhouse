@@ -1,26 +1,18 @@
 import React from "react";
 import './Item.scss'
 
-const Item = ({item})=>{
+const Item = ({id, title, pictureUrl, price})=>{
+
+    console.log(title,pictureUrl,price)
 
     return(
-        <section id='items'>
-            {      
-                item.map((allItem)=>{
-                    console.log(allItem.title) 
-                    return <div key={allItem.id}>
-                        <h3>{allItem.title}</h3>
-                        <img src={allItem.pictureUrl}/>
-                        <p>{allItem.price}</p>
-                    </div>
-                })           
-
-      
-                
-            }
-        </section>
+        <div>
+            <h2>{title}</h2>
+            <img src={pictureUrl} alt="imagen del producto"/>
+            <p>{price}</p>
+        </div>
     )
 
 }
 
-export default Item;
+export default Item
