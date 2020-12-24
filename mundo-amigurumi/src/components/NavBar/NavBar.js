@@ -1,19 +1,25 @@
-import React from "react";
+import React, {useEffect,useState} from 'react'
 import logo from '../../assets/img/NavBar/logo.svg';
 import logo_m from '../../assets/img/NavBar/logo-m.svg';
 import './NavBar.scss'
 import CartWidget from '../CartWidget/CartWidget'
+import {NavLink,Link} from 'react-router-dom'
+
+
 
 const NavBar = () => {
+
+
 return(
     <header>
-        <img className = "logoDesk" src={logo}/>
-        <img className = "logoMobile" src={logo_m} />
+        <Link to='/'>
+            <img className = "logoDesk" src={logo}/>
+            <img className = "logoMobile" src={logo_m} />
+        </Link>
+
         <nav className="menu">
             <ul>
-                <a href="#"><li>Home</li></a>
-                <a href="#"><li>productos</li></a>
-                <a href="#"><li>Contacto</li></a>
+                <li><NavLink to='/productos'>productos</NavLink></li>
             </ul>
         </nav>
         <CartWidget/>

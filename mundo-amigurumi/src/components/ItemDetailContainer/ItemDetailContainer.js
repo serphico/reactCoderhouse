@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.scss'
 
@@ -28,11 +28,11 @@ const getItems = new Promise((res, rej)=>{
 
 const ItemDeteailContainer = () =>{
 
-    const [itemDetailResq, setItemDetailResq] = React.useState()
+    const [itemDetailResq, setItemDetailResq] = useState()
 
-    React.useEffect(()=>{
+    useEffect(()=>{
         getItems.then((res)=>{
-            setItemDetailResq(res[0])
+            setItemDetailResq(res)
         })
 
     },[])

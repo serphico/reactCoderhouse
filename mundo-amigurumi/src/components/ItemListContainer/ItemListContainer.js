@@ -11,10 +11,7 @@ const ItemListContainer = (props) => {
             <div id='Items'>
             <ItemList />
             </div>
-            <ItemCount stock={5} initial={1}/>
-            <Button variant="contained" color="primary" >
-                 Agregar carrito
-            </Button>
+
         </section>
     );
 }

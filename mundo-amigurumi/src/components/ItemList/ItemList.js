@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect,useState} from 'react'
 import './ItemList.scss'
 import Item from '../Item/Item'
+
 
 const listProduct = new Promise ((res,rej)=>{
     setTimeout(() => {
@@ -25,9 +26,9 @@ const listProduct = new Promise ((res,rej)=>{
 
 const ItemList =()=>{
 
-    const [itemListState, setItemListState] = React.useState([]);
+    const [itemListState, setItemListState] = useState([]);
 
-    React.useEffect(()=>{
+    useEffect(()=>{
         listProduct.then((res)=>{
             setItemListState(res)
         })
@@ -39,7 +40,7 @@ const ItemList =()=>{
         {
             itemListState.map((dataItem, index)=>{
                 return(
-                    <Item key={dataItem.id}
+                    <Item idProduct={dataItem.id}
                     title={dataItem.title}
                     pictureUrl={dataItem.pictureUrl}
                     price={dataItem.price}        
