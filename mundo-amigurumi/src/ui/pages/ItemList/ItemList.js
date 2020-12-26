@@ -8,16 +8,22 @@ const listProduct = new Promise ((res,rej)=>{
               res(
                 [
                     {
-                       "id":1,
+                       "id":"1",
                        "title":"Item1",
                        "pictureUrl":"http://via.placeholder.com/250",
                        "price":"$500"
                     },
                     {
-                       "id":2,
+                       "id":"2",
                        "title":"Item2",
                        "pictureUrl":"http://via.placeholder.com/250",
                        "price":"$1000"
+                    },
+                    {
+                       "id":"3",
+                       "title":"Item3",
+                       "pictureUrl":"http://via.placeholder.com/250",
+                       "price":"$1500"
                     }
                  ]  
             )
@@ -26,7 +32,7 @@ const listProduct = new Promise ((res,rej)=>{
 
 const ItemList =()=>{
 
-    const [itemListState, setItemListState] = useState([]);
+    const [itemListState, setItemListState] = useState(false);
 
     useEffect(()=>{
         listProduct.then((res)=>{
@@ -36,20 +42,20 @@ const ItemList =()=>{
 
     return(
         <>
-        {itemListState.length === 0 ? <p>loading</p> : null}
-        {
+        {itemListState ?  
+        (
             itemListState.map((dataItem, index)=>{
                 return(
-                    <Item idProduct={dataItem.id}
-                    title={dataItem.title}
-                    pictureUrl={dataItem.pictureUrl}
-                    price={dataItem.price}        
-                    />
+
+                         <Item key={dataItem.id} idProduct={index}
+                         title={dataItem.title}
+                          pictureUrl={dataItem.pictureUrl}
+                         price={dataItem.price}        
+                         />
+
                 )
             }
-
-        )
-        }
+        )) : (<p>loading</p>)}
 
         </>
     )

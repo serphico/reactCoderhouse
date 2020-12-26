@@ -1,10 +1,8 @@
 import React from 'react'
 import './ItemDetail.js'
 
-const ItemDetail = ({key, title, description, pictureUrl, price}) =>{
 
-    console.log(title,pictureUrl,price,description)
-
+const ItemDetail = ({title, description, pictureUrl, price}) =>{
 
     return(
         <>

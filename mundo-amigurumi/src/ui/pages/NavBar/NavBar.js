@@ -1,6 +1,5 @@
-import React, {useEffect,useState} from 'react'
-import logo from '../../assets/img/NavBar/logo.svg';
-import logo_m from '../../assets/img/NavBar/logo-m.svg';
+import logo from '../../../assets/img/NavBar/logo.svg';
+import logo_m from '../../../assets/img/NavBar/logo-m.svg';
 import './NavBar.scss'
 import CartWidget from '../CartWidget/CartWidget'
 import {NavLink,Link} from 'react-router-dom'
@@ -19,7 +18,7 @@ return(
 
         <nav className="menu">
             <ul>
-                <li><NavLink to='/productos'>productos</NavLink></li>
+                <li><NavLink to='/productos' exact>productos</NavLink></li>
             </ul>
         </nav>
         <CartWidget/>
