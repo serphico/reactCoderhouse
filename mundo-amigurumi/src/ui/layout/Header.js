@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Navbar from '../pages/NavBar/NavBar'
 
 const header = () => {
+  const [links, setLinks] = useState(['caterogia', 'cuenta'])
     return (
         <>
-          <Navbar/>  
+          <Navbar links={links}/>  
         </>
     )
 }

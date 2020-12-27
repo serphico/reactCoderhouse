@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom'
 
 
 const getItems = new Promise((res, rej)=>{
+
     setTimeout(() => {
         res(
             
@@ -33,38 +34,42 @@ const getItems = new Promise((res, rej)=>{
              ]
         )
     }, 2000);
-})
 
+})
 
 const ItemDeteailContainer = () =>{
 
     const itemsParams = useParams()
-   // [itemsParams.detailId]
-    const [itemDetailResq, setItemDetailResq] = useState(false)
+ 
+    const [itemDetailResq, setItemDetailResq] = useState([])
 
     useEffect(()=>{
         getItems.then((res)=>{
-            return res
-        })
-        .then((res)=>{
-            setItemDetailResq(res[itemsParams.detailId])
+            setItemDetailResq(res)
         })
 
     },[])
 
-    return(
+
+   return(
         <>
-            {itemDetailResq === undefined ? ( <p>loading</p>) 
+            {itemDetailResq.length === 0 ?  <p>loading</p>
        
-        : (
-            <ItemDetail
-            key={itemDetailResq.id}
-            title={itemDetailResq.title}
-            pictureUrl={itemDetailResq.pictureUrl}
-            description={itemDetailResq.description}
-            price={itemDetailResq.price}
-          />
-          )}
+        : itemDetailResq.map((itemDetail)=>{
+            return(
+                itemDetail.id === itemsParams.detailId ?
+                    <ItemDetail
+                key = {itemDetail.id}
+                title={itemDetail.title}
+                pictureUrl={itemDetail.pictureUrl}
+                description={itemDetail.description}
+                price={itemDetail.price}
+              /> : null
+            )
+        })
+                
+            
+        }
 
             
         </>

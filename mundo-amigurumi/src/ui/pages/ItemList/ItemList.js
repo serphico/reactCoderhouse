@@ -27,7 +27,9 @@ const listProduct = new Promise ((res,rej)=>{
                     }
                  ]  
             )
-    }, 2000)
+        }, 2000)
+
+    
     })
 
 const ItemList =()=>{
@@ -43,11 +45,11 @@ const ItemList =()=>{
     return(
         <>
         {itemListState ?  
-        (
+        
             itemListState.map((dataItem, index)=>{
                 return(
 
-                         <Item key={dataItem.id} idProduct={index}
+                         <Item key={dataItem.id} idProduct={dataItem.id}
                          title={dataItem.title}
                           pictureUrl={dataItem.pictureUrl}
                          price={dataItem.price}        
@@ -55,7 +57,7 @@ const ItemList =()=>{
 
                 )
             }
-        )) : (<p>loading</p>)}
+        ) : (<p>loading</p>)}
 
         </>
     )

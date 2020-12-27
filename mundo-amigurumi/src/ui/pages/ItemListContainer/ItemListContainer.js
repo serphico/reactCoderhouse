@@ -4,10 +4,13 @@ import ItemList from '../ItemList/ItemList'
 
 const ItemListContainer = (props) => {
     return(
-        <section>
-            <h1>{props.greeting}</h1>
+        <>
+        <h1>{props.greeting}</h1>
+
+        <section id="itemsContainer">            
             <ItemList />
         </section>
+        </>
     );
 }
 

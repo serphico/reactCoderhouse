@@ -6,7 +6,9 @@ import {NavLink,Link} from 'react-router-dom'
 
 
 
-const NavBar = () => {
+const NavBar = ({links}) => {
+
+
 
 
 return(
@@ -18,9 +20,15 @@ return(
 
         <nav className="menu">
             <ul>
-                <li><NavLink to='/productos' exact>productos</NavLink></li>
+            {
+                links.map((element,index)=>{
+                    return(
+                        <li><NavLink to={`/${element}`} key={index} exact>{element}</NavLink></li>
+                    )
+                })
+            }
             </ul>
-        </nav>
+         </nav>
         <CartWidget/>
     </header>
 );
