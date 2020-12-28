@@ -10,6 +10,7 @@ const getItems = new Promise((res, rej)=>{
         res(
             
             [
+                
                 {
                    "id":"1",
                    "title":"Item1",
@@ -55,19 +56,20 @@ const ItemDeteailContainer = () =>{
         <>
             {itemDetailResq.length === 0 ?  <p>loading</p>
        
-        : itemDetailResq.map((itemDetail)=>{
-            return(
-                itemDetail.id === itemsParams.detailId ?
-                    <ItemDetail
-                key = {itemDetail.id}
-                title={itemDetail.title}
-                pictureUrl={itemDetail.pictureUrl}
-                description={itemDetail.description}
-                price={itemDetail.price}
-              /> : null
-            )
-        })
-                
+            : itemDetailResq.map((itemDetail)=>{
+                console.log(itemDetail.id)
+                //console.log(itemsParams.detailId)
+                return(
+                    itemDetail.id === itemsParams.detailId ?
+                        <ItemDetail
+                            key = {itemDetail.id}
+                            title={itemDetail.title}
+                            pictureUrl={itemDetail.pictureUrl}
+                            description={itemDetail.description}
+                            price={itemDetail.price}
+                        /> : null
+                    )
+            })                
             
         }
 

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import Navbar from '../pages/NavBar/NavBar'
 
-const header = () => {
-  const [links, setLinks] = useState(['caterogia', 'cuenta'])
+const Header = () => {
+  const [links, setLinks] = useState(['productos', 'cuenta'])
     return (
         <>
           <Navbar links={links}/>  
@@ -10,4 +10,4 @@ const header = () => {
     )
 }
 
-export default header
+export default Header

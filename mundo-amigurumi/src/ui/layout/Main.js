@@ -11,11 +11,11 @@ const main = () => {
                 <Route path='/' exact>
                     <Home/>
                 </Route>
-                <Route path='/caterogia' exact>
+                <Route path='/productos' exact>
                     <ItemListContainer greeting='Hola gente.'/>
 
                 </Route>        
-                <Route path='/caterogia/:detailId' >
+                <Route path='/productos/:detailId' >
                     <ItemDetailContainer/> 
                 </Route>
             </Switch>
