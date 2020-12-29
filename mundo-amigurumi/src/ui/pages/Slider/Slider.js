@@ -22,6 +22,8 @@ const getImg = new Promise((res, rej)=>{
     }, 2000);
 })
 
+
+
 const Slider = () => {
 
     const [imgSlider, setImgSlider] = useState([])
@@ -30,6 +32,8 @@ const Slider = () => {
         getImg.then((res)=>{
             setImgSlider(res)
         })
+
+        
     })
 
     console.log(imgSlider)
@@ -40,7 +44,10 @@ const Slider = () => {
             imgSlider.length === 0 ?
             <p>Loading</p>
             :imgSlider.map((imgs)=>{
+                
+  
                 return(
+
                         <img className={`slider${imgs.id}`} src={imgs.pictureUrl} alt="imagenes de slider"/>
                 )
             })

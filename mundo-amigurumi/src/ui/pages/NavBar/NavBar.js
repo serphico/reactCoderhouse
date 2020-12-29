@@ -22,8 +22,9 @@ return(
             <ul>
             {
                 links.map((element,index)=>{
+                    console.log(element.url)
                     return(
-                        <li><NavLink to={`/${element}`} key={index} exact>{element}</NavLink></li>
+                        <li><NavLink to={`/${element.url}`} key={index} exact>{element.nombre}</NavLink></li>
                     )
                 })
             }

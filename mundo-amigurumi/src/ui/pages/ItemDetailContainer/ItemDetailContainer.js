@@ -32,6 +32,15 @@ const getItems = new Promise((res, rej)=>{
                     "description":"No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas \"Letraset\".",
                     "price":"$1400"
                  }
+                 ,
+                    {
+                       "id":"4",
+                       "categoria":"amigurumis",
+                       "title":"Item4",
+                       "pictureUrl":"http://via.placeholder.com/450",
+                       "description":"No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas \"Letraset\".",
+                       "price":"$2000"
+                    }
              ]
         )
     }, 2000);
@@ -40,7 +49,7 @@ const getItems = new Promise((res, rej)=>{
 
 const ItemDeteailContainer = () =>{
 
-    const itemsParams = useParams()
+    const {detailId} = useParams()
  
     const [itemDetailResq, setItemDetailResq] = useState([])
 
@@ -49,7 +58,7 @@ const ItemDeteailContainer = () =>{
             setItemDetailResq(res)
         })
 
-    },[])
+    },[detailId])
 
 
    return(
@@ -60,7 +69,7 @@ const ItemDeteailContainer = () =>{
                 console.log(itemDetail.id)
                 //console.log(itemsParams.detailId)
                 return(
-                    itemDetail.id === itemsParams.detailId ?
+                    itemDetail.id === detailId ?
                         <ItemDetail
                             key = {itemDetail.id}
                             title={itemDetail.title}

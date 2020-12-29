@@ -8,7 +8,7 @@ const Item = ({idProduct, title, pictureUrl, price})=>{
 
 
     return(
-        <Link to={`/productos/${idProduct}`}>
+        <Link to={`/productoDetalle/${idProduct}`}>
 
                 <div>
                     <h2>{title}</h2>

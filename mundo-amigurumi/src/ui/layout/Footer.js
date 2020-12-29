@@ -1,10 +1,10 @@
 import React from 'react'
+import FooterContent from '../pages/FooterContent/FooterContent'
 
 const footer = () => {
+
     return (
-        <div>
-            <p>soy un footer</p>
-        </div>
+        <FooterContent/>
     )
 }
 
