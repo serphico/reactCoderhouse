@@ -5,6 +5,9 @@ import BuyButton from '../Buy/BuyButton'
 
 const ItemDetail = ({title, description, pictureUrl, price, stock, initial}) =>{
 
+
+
+ 
     const [count, setCount] = useState(initial);
 
     const countAdd = () => {
@@ -12,6 +15,7 @@ const ItemDetail = ({title, description, pictureUrl, price, stock, initial}) =>{
             setCount(count + 1 );
            }
     }
+
 
     const countRemove = () => {
 
@@ -21,7 +25,7 @@ const ItemDetail = ({title, description, pictureUrl, price, stock, initial}) =>{
                 );
         }
     }
-
+   
 
 
     return(
@@ -33,8 +37,8 @@ const ItemDetail = ({title, description, pictureUrl, price, stock, initial}) =>{
             <div className="itemDescriptions">
                 <h2>{title}</h2>
                 <span>{price}</span>
-                <ItemCount countAdd={countAdd} countRemove={countRemove} count={count}/>
-                <BuyButton count={count} initial={initial}/>
+                <ItemCount count={count} countAdd={countAdd} countRemove={countRemove}/>
+                <BuyButton count={count}/>
             </div>
         </div>
 

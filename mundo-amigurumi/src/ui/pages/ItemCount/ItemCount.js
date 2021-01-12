@@ -3,11 +3,9 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import './ItemCount.scss'
 
-const ItemCount = ({countAdd,countRemove,count}) => {
 
 
-
-
+const ItemCount = ({countRemove, countAdd, count}) => {
 
 
     return(

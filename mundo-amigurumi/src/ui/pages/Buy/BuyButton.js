@@ -3,7 +3,10 @@ import Button from '@material-ui/core/Button'
 import {Link} from 'react-router-dom'
 
 
+
 function BuyButton({count}) {
+
+
 
     const [displayButton, setDisplayButton] = useState(count)
 
@@ -14,7 +17,6 @@ function BuyButton({count}) {
 
     })
 
-    console.log(displayButton)
 
     return (
         

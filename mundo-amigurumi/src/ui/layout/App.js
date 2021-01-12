@@ -3,22 +3,20 @@ import Header from './Header';
 import Main from "./Main";
 import Footer from './Footer';
 import {BrowserRouter} from 'react-router-dom';
-import {DbContextProvider} from "./CartContext";
-import {DbContext} from './CartContext'
+import {DbContextProvider} from "./ProductContext";
+import {CartContextPrivider} from "./CartContext"
 
 
 const App = () => {
 
-  const {itemDb} = useContext(DbContext)
-
   return (
       <BrowserRouter>
           <DbContextProvider>
-          <p>{itemDb}</p>
-
-        <Header/>
-        <Main/>
-        <Footer/>
+            <CartContextPrivider>
+            <Header/>
+            <Main/>
+            <Footer/>
+          </CartContextPrivider>
         </DbContextProvider>
 
       </BrowserRouter>
