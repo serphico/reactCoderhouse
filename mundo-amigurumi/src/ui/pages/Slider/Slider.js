@@ -36,7 +36,7 @@ const Slider = () => {
         
     })
 
-    console.log(imgSlider)
+    //console.log(imgSlider)
 
     return (
         <div id="sliderContainer">

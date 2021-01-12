@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Button from '@material-ui/core/Button'
+import {Link} from 'react-router-dom'
 
 
 function BuyButton({count}) {
@@ -19,7 +20,7 @@ function BuyButton({count}) {
         
         <>
         
-            {displayButton === 0 ? null : <Button variant="contained" color="primary">Comprar {displayButton} unidades.</Button>}
+            {displayButton === 0 ? null : <Link to={`/cart`}><Button variant="contained" color="primary">Comprar {displayButton} unidades.</Button></Link>}
             
         </>
     )

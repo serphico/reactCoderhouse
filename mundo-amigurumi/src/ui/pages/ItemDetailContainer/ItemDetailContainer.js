@@ -1,7 +1,8 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect,useState,useContext} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.scss'
 import {useParams} from 'react-router-dom'
+import DbContext from '../../layout/CartContext'
 
 
 const getItems = new Promise((res, rej)=>{
@@ -53,9 +54,15 @@ const getItems = new Promise((res, rej)=>{
 
 const ItemDeteailContainer = () =>{
 
+    
+const {itemDb} = useContext(DbContext)
+
+console.log(itemDb) 
+
     const {detailId} = useParams()
  
     const [itemDetailResq, setItemDetailResq] = useState([])
+
 
     useEffect(()=>{
         getItems.then((res)=>{
