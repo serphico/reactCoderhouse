@@ -1,16 +1,15 @@
 import React, {createContext, useState, useEffect} from 'react';
 
-const DbContext = createContext()
+export const DbContext = createContext()
 const {Provider, Consumer} = DbContext
 
-const DbContextProvider = ({children}) =>{
+export const DbContextProvider = ({children}) =>{
  
     const [itemDb, setItemDb] = useState('Matias')
     
 
     return(
         <Provider value={{itemDb}}>
-
 
             {children}
             
@@ -20,6 +19,3 @@ const DbContextProvider = ({children}) =>{
     )
 }
 
-export default DbContext
-
-export {DbContextProvider}

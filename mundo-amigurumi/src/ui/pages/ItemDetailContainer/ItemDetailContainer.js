@@ -2,7 +2,7 @@ import React, {useEffect,useState,useContext} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.scss'
 import {useParams} from 'react-router-dom'
-import DbContext from '../../layout/CartContext'
+import {DbContext} from '../../layout/CartContext'
 
 
 const getItems = new Promise((res, rej)=>{
