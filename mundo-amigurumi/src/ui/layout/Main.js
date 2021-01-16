@@ -3,6 +3,7 @@ import Home from '../pages/Home/Home'
 import ItemListContainer from '../pages/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from '../pages/ItemDetailContainer/ItemDetailContainer'
 import {Switch,Route} from 'react-router-dom'
+import Cart from '../pages/Cart/Cart'
 
 const main = () => {
     return (
@@ -19,6 +20,9 @@ const main = () => {
                 </Route>      
                 <Route path='/productoDetalle/:detailId' exact>
                     <ItemDetailContainer/> 
+                </Route>
+                <Route path='/cart'>
+                    <Cart/>
                 </Route>
             </Switch>
         </>

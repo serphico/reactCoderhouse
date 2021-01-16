@@ -48,7 +48,7 @@ const Slider = () => {
   
                 return(
 
-                        <img className={`slider${imgs.id}`} src={imgs.pictureUrl} alt="imagenes de slider"/>
+                        <img key={imgs.id} className={`slider${imgs.id}`} src={imgs.pictureUrl} alt="imagenes de slider"/>
                 )
             })
         }

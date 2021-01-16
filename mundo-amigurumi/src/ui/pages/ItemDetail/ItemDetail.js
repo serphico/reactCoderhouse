@@ -1,17 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './ItemDetail.scss'
 import ItemCount from '../ItemCount/ItemCount'
 import BuyButton from '../Buy/BuyButton'
-
-const ItemDetail = ({title, description, pictureUrl, price, stock, initial}) =>{
-
+import {CartContextInit} from '../../layout/CartContext'
 
 
- 
+const ItemDetail = ({itemDetail, initial}) =>{
+
+    const {addCart} = useContext(CartContextInit)
+
+
     const [count, setCount] = useState(initial);
 
     const countAdd = () => {
-           if(count < stock){
+           if(count < itemDetail.stock){
             setCount(count + 1 );
            }
     }
@@ -25,25 +27,31 @@ const ItemDetail = ({title, description, pictureUrl, price, stock, initial}) =>{
                 );
         }
     }
+
+
+    const addItem = () =>{
+        addCart(itemDetail, count)
+    }
    
+    
 
 
     return(
         <>
         <div className='itemContainerInfo'>
             <div>
-                <img src={pictureUrl} alt="imagen del producto"/>
+                <img src={itemDetail.pictureUrl} alt="imagen del producto"/>
             </div>
             <div className="itemDescriptions">
-                <h2>{title}</h2>
-                <span>{price}</span>
+                <h2>{itemDetail.title}</h2>
+                <span>{itemDetail.price}</span>
                 <ItemCount count={count} countAdd={countAdd} countRemove={countRemove}/>
-                <BuyButton count={count}/>
+                <BuyButton addItem={addItem} count={count}/>
             </div>
         </div>
 
         <div className='itemContainerDesc'>
-            <p>{description}</p>
+            <p>{itemDetail.description}</p>
         </div>
         </>
     )

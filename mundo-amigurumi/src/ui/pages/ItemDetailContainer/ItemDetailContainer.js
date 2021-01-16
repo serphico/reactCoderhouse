@@ -23,12 +23,7 @@ const {itemDb,initial} = useContext(DbContext)
                 return(
                     itemDetail.id === detailId ?
                         <ItemDetail
-                            key = {itemDetail.id}
-                            title={itemDetail.title}
-                            pictureUrl={itemDetail.pictureUrl}
-                            description={itemDetail.description}
-                            price={itemDetail.price}
-                            stock={itemDetail.stock}
+                            itemDetail = {itemDetail}
                             initial={initial}
                         /> : null
                     )

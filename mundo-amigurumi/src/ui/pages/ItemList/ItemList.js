@@ -5,14 +5,14 @@ import Item from '../Item/Item'
 
 
 
-const ItemList =({key, idProduct, categoria, title, pictureUrl, price})=>{
+const ItemList =({idProduct, categoria, title, pictureUrl, price})=>{
 
     
 
     return(
         <>
 
-                        <Item key={key} idProduct={idProduct}
+                        <Item key={idProduct} idProduct={idProduct}
                          categoria={categoria}
                          title={title}
                           pictureUrl={pictureUrl}

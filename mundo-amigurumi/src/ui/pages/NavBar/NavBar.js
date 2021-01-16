@@ -14,17 +14,16 @@ const NavBar = ({links}) => {
 return(
     <header>
         <Link to='/'>
-            <img className = "logoDesk" src={logo}/>
-            <img className = "logoMobile" src={logo_m} />
+            <img className = "logoDesk" src={logo} alt="Marca para escritorio"/>
+            <img className = "logoMobile" src={logo_m} alt="Marca para mobile"/>
         </Link>
 
         <nav className="menu">
             <ul>
             {
                 links.map((element,index)=>{
-                    console.log(element.url)
                     return(
-                        <li><NavLink to={`/${element.url}`} exact>{element.nombre}</NavLink></li>
+                        <li key={index}><NavLink  to={`/${element.url}`} exact>{element.nombre}</NavLink></li>
                     )
                 })
             }
