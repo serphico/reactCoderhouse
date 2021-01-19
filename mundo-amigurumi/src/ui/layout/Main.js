@@ -5,7 +5,11 @@ import ItemDetailContainer from '../pages/ItemDetailContainer/ItemDetailContaine
 import {Switch,Route} from 'react-router-dom'
 import Cart from '../pages/Cart/Cart'
 
+
+
 const main = () => {
+
+
     return (
         <>
         <Switch>

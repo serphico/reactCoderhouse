@@ -6,12 +6,13 @@ import {DbContext} from '../../layout/ProductContext'
 
 const ItemDeteailContainer = () =>{
 
-    
-const {itemDb,initial} = useContext(DbContext)
+
+    const {itemDb,initial} = useContext(DbContext)
 
 
     const {detailId} = useParams()
- 
+
+    
 
    return(
        
@@ -19,15 +20,22 @@ const {itemDb,initial} = useContext(DbContext)
 
             {itemDb.length === 0 ?  <p>loading</p>
        
-            : itemDb.map((itemDetail)=>{
+            : itemDb.map((itemDb)=>{
+                    console.log(itemDb)
+                    console.log(detailId)
                 return(
-                    itemDetail.id === detailId ?
+                    itemDb.id === detailId ?
                         <ItemDetail
-                            itemDetail = {itemDetail}
+                            itemDetail = {itemDb}
                             initial={initial}
                         /> : null
-                    )
-            })                
+                )
+
+            })
+                
+                    
+                    
+                       
             
         }
 
