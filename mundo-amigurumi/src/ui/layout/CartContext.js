@@ -16,9 +16,7 @@ export function CartContextPrivider( {children}) {
     const [phoneForm, setPhoneForm] = useState()
     const [emailForm, setEmailForm] = useState()
 
-    const [orderId, setOrderId] = useState()
-
-    console.log(orderId)
+    const [orderId, setOrderId] = useState([])
 
 
     const cartLength = () => {
@@ -70,18 +68,27 @@ export function CartContextPrivider( {children}) {
         const newOrder = {
             buyer: {nameForm, phoneForm, emailForm},
             items: [{itemId, itemPrice, itemQuantity}], date: firebase.firestore.Timestamp.fromDate(new Date()),TotalPrice}
-
+            setAllCart([])
         orders.add(newOrder).then(({id}) => {
-            setOrderId(id)
+            setOrderId([id])
         }).catch((err)=>{
             console.log(err)
         })
 
     }
 
+    const orderIdAccepted = () => {
+        setOrderId([])
+        setAllCart([])
+        setNameForm()
+        setPhoneForm()
+        setEmailForm()
+
+    }
+
 
     return (
-        <Provider value={{allCart, setAllCart, cartLength, cartPrice, addCart, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm}}>
+        <Provider value={{allCart, setAllCart, cartLength, cartPrice, addCart, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm,orderId,orderIdAccepted}}>
 
             {children}
             

@@ -1,14 +1,12 @@
-import React, {useState,useEffect, useContext} from 'react'
+import React, {useContext} from 'react'
+import ItemsCart from '../ItemsCart/ItemsCart'
 import Button from '@material-ui/core/Button'
 import BuyForm from '../BuyForm/BuyForm'
-import firebase from "firebase/app";
-import "firebase/firestore";
 import {CartContextInit} from '../../layout/CartContext'
-import './cart.scss'
 
 function Cart() {
 
-    const {allCart, cartPrice, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm} = useContext(CartContextInit)
+    const {allCart, cartPrice, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm,orderId,orderIdAccepted} = useContext(CartContextInit)
 
 
 
@@ -37,10 +35,12 @@ function Cart() {
 
     }
 
+    console.log(orderId)
+
 
     return (
         <>
-               {allCart.length === 0 ?  <> <p> vacio tu carrito</p></> :
+               {allCart.length === 0 && orderId ?  <> <p>tu carrito esta vacio</p></> :
                  allCart.map((e)=>{
 
                     const addId =()=>{
@@ -49,26 +49,48 @@ function Cart() {
 
                     return(
                         <>
-                            <div key={e.prod.id} id="CartItemContainer">
-                                <img src={e.prod.pictureUrl} alt="imagen de producto"/>
-                                <h3>{e.prod.title}</h3>
-                                <span>{e.prod.price}</span>
-                                <p>cantidad: {e.cant}</p>
-                                <Button variant="contained" color="primary" onClick={addId}>Quitar</Button>
-                            </div>
-
-
-
+                        <ItemsCart
+                         key={e.prod.id}
+                         imgItemsCart={e.prod.pictureUrl} 
+                         titleItemsCart={e.prod.title}
+                         priceItemsCart={e.prod.price}
+                         cantItemsCart={e.cant}
+                         addId={addId}
+                         />
 
                         </>
                     )
                  })
+                 
                }
-                                           <div>
+               {
+                   allCart.length === 0  && orderId  ? null : 
+                   <>
+                            <div>
                                 <p>Total:{cartPrice()}</p>
                             </div>
                             <Button  variant="contained" color="primary" onClick={removeCart}>borrar</Button>
                             <BuyForm key='buyFormComponent'  nameInfo={nameInfo} emailInfo={emailInfo} phoneInfo={phoneInfo} addBuy={addBuy}/>
+                   </>
+               
+
+               }
+               
+               {allCart && orderId.length >= 1 ? 
+               
+               <>
+               <h1>Tu compra se ha realizado</h1>
+               <p>Su numero de ID de su orden es: {orderId}</p>
+               <Button  variant="contained" color="primary" onClick={orderIdAccepted}>Aceptar</Button>
+
+               </>
+               
+               
+               : null
+
+               }
+              
+
         </>
     )
 }
