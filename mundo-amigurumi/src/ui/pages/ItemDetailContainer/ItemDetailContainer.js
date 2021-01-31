@@ -21,11 +21,10 @@ const ItemDeteailContainer = () =>{
             {itemDb.length === 0 ?  <p>loading</p>
        
             : itemDb.map((itemDb)=>{
-                    console.log(itemDb)
-                    console.log(detailId)
                 return(
                     itemDb.id === detailId ?
                         <ItemDetail
+                            key={itemDb.id}
                             itemDetail = {itemDb}
                             initial={initial}
                         /> : null

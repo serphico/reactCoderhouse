@@ -1,13 +1,25 @@
 import React, {useState, createContext} from 'react'
+import firebase from "firebase/app";
+import "firebase/firestore";
+import {firestoreExport} from '../../api/conection'
+
 
 export const CartContextInit = createContext()
 
-const {Provider, Consumer} = CartContextInit
+const {Provider} = CartContextInit
 
 
 export function CartContextPrivider( {children}) {
 
     const[allCart, setAllCart] = useState([])
+    const [nameForm, setNameForm] = useState()
+    const [phoneForm, setPhoneForm] = useState()
+    const [emailForm, setEmailForm] = useState()
+
+    const [orderId, setOrderId] = useState()
+
+    console.log(orderId)
+
 
     const cartLength = () => {
         return allCart.reduce((acumulator, valueItems)=>{return acumulator + valueItems.cant},0)
@@ -41,7 +53,7 @@ export function CartContextPrivider( {children}) {
 
     const removeItem = (itemId) => {
         //REMOVER ITEM POR ID
-        let itemIdRemove = allCart.filter((itemIdRemove) => itemIdRemove.prod.id != itemId)
+        let itemIdRemove = allCart.filter((itemIdRemove) => itemIdRemove.prod.id !== itemId)
         setAllCart(itemIdRemove);
 
     }
@@ -50,9 +62,26 @@ export function CartContextPrivider( {children}) {
         setAllCart([])
     }
 
+    
+    const buyItem = (itemId, itemPrice, itemQuantity, TotalPrice) => {
+   
+        const db = firestoreExport()
+        const orders = db.collection("orders")
+        const newOrder = {
+            buyer: {nameForm, phoneForm, emailForm},
+            items: [{itemId, itemPrice, itemQuantity}], date: firebase.firestore.Timestamp.fromDate(new Date()),TotalPrice}
+
+        orders.add(newOrder).then(({id}) => {
+            setOrderId(id)
+        }).catch((err)=>{
+            console.log(err)
+        })
+
+    }
+
 
     return (
-        <Provider value={{allCart, setAllCart, cartLength, cartPrice, addCart, removeCart,removeItem}}>
+        <Provider value={{allCart, setAllCart, cartLength, cartPrice, addCart, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm}}>
 
             {children}
             
