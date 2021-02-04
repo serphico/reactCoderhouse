@@ -11,7 +11,7 @@ const main = () => {
 
 
     return (
-        <>
+        <main>
         <Switch>
                 <Route path='/' exact>
                     <Home/>
@@ -29,7 +29,7 @@ const main = () => {
                     <Cart/>
                 </Route>
             </Switch>
-        </>
+        </main>
     )
 }
 
