@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 import './Slider.scss'
 
 const getImg = new Promise((res, rej)=>{
@@ -39,7 +41,7 @@ const Slider = () => {
     //console.log(imgSlider)
 
     return (
-        <div id="sliderContainer">
+        <Carousel arrows dots>
         {
             imgSlider.length === 0 ?
             <p>Loading</p>
@@ -53,7 +55,7 @@ const Slider = () => {
             })
         }
             
-        </div>
+        </Carousel>
     )
 }
 
