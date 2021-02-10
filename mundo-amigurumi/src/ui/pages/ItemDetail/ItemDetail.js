@@ -37,23 +37,24 @@ const ItemDetail = ({itemDetail, initial}) =>{
 
 
     return(
-        <>
+        <div className='itemDetailContainer'>
         <div className='itemContainerInfo'>
             <div>
                 <img src={itemDetail.pictureUrl} alt="imagen del producto"/>
             </div>
             <div className="itemDescriptions">
                 <h2>{itemDetail.title}</h2>
-                <span>{itemDetail.price}</span>
+                <span>Precio: ${itemDetail.price}</span>
                 <ItemCount count={count} countAdd={countAdd} countRemove={countRemove}/>
                 <BuyButton addItem={addItem} count={count}/>
             </div>
         </div>
 
         <div className='itemContainerDesc'>
+            <h3>Descripción</h3>
             <p>{itemDetail.description}</p>
         </div>
-        </>
+        </div>
     )
 }
 

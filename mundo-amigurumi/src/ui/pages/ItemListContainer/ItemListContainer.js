@@ -5,15 +5,23 @@ import {useParams} from 'react-router-dom'
 import {DbContext} from '../../layout/ProductContext'
 
 
+
 const ItemListContainer = () => {
 
     const {id} = useParams()
 
     const {itemDb} = useContext(DbContext)
-    
+
+
 
     return(
         <section id="itemsContainer">
+            { id ? 
+                    (<h1>{id}</h1>)
+                    :
+                    (<h1>Nuestros productos</h1>)
+            }
+
             {itemDb.length === 0 ?  <p>loading</p>
        
             : itemDb.map((dataItem)=>{
@@ -29,13 +37,15 @@ const ItemListContainer = () => {
                     price={dataItem.price}  
                     />) :null
 
-                    :(<ItemList 
+                    :(                    
+                    <ItemList 
                     key={dataItem.id} idProduct={dataItem.id}
                     categoria={dataItem.category}
                     title={dataItem.title}
                      pictureUrl={dataItem.pictureUrl}
                     price={dataItem.price}  
-                    />) 
+                    />
+                    ) 
                     )
             })                
             

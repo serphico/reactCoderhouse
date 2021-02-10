@@ -12,9 +12,12 @@ const {Provider} = CartContextInit
 export function CartContextPrivider( {children}) {
 
     const[allCart, setAllCart] = useState([])
-    const [nameForm, setNameForm] = useState()
-    const [phoneForm, setPhoneForm] = useState()
-    const [emailForm, setEmailForm] = useState()
+    const [idSeteo, setIdSeteo] = useState([])
+    const [nameForm, setNameForm] = useState([])
+    const [phoneForm, setPhoneForm] = useState([])
+    const [emailForm, setEmailForm] = useState([])
+    const [verifyEmailForm, setVerifyEmailForm] = useState([])
+
 
     const [orderId, setOrderId] = useState([])
 
@@ -77,18 +80,24 @@ export function CartContextPrivider( {children}) {
 
     }
 
+    const seteoParam = (idParam) => {
+        setIdSeteo([idParam])
+
+    }
+
     const orderIdAccepted = () => {
         setOrderId([])
         setAllCart([])
-        setNameForm()
-        setPhoneForm()
-        setEmailForm()
+        setNameForm([])
+        setPhoneForm([])
+        setEmailForm([])
+        setVerifyEmailForm([])
 
     }
 
 
     return (
-        <Provider value={{allCart, setAllCart, cartLength, cartPrice, addCart, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm,orderId,orderIdAccepted}}>
+        <Provider value={{allCart, setAllCart, cartLength, cartPrice, addCart, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm,orderId,orderIdAccepted,nameForm,phoneForm,emailForm,idSeteo,seteoParam,verifyEmailForm, setVerifyEmailForm}}>
 
             {children}
             

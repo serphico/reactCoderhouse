@@ -3,12 +3,13 @@ import ItemsCart from '../ItemsCart/ItemsCart'
 import Button from '@material-ui/core/Button'
 import BuyForm from '../BuyForm/BuyForm'
 import {CartContextInit} from '../../layout/CartContext'
+import './cart.scss'
+
+
 
 function Cart() {
 
-    const {allCart, cartPrice, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm,orderId,orderIdAccepted} = useContext(CartContextInit)
-
-
+    const {allCart, cartPrice, removeCart,removeItem,buyItem,setNameForm, setPhoneForm, setEmailForm,setVerifyEmailForm,orderId,orderIdAccepted} = useContext(CartContextInit)
 
     const nameInfo = (e) => {
         const info = e.target.value
@@ -25,6 +26,11 @@ function Cart() {
         setEmailForm(info)
     }
 
+    const verifyEmailInfo = (e) => {
+        const info = e.target.value
+        setVerifyEmailForm(info)
+    }
+
 
     const addBuy = () => {
 
@@ -35,12 +41,11 @@ function Cart() {
 
     }
 
-    console.log(orderId)
-
 
     return (
-        <>
-               {allCart.length === 0 && orderId ?  <> <p>tu carrito esta vacio</p></> :
+        <div id="cartWithItemContainer">
+            <div className="cartWithItemResume">
+               {allCart.length === 0 && allCart && orderId.length === 0 ?  <div id="cartContainer"> <p>tu carrito esta vacio</p></div> :
                  allCart.map((e)=>{
 
                     const addId =()=>{
@@ -61,29 +66,34 @@ function Cart() {
                         </>
                     )
                  })
-                 
+
+                             
                }
+               </div>
                {
                    allCart.length === 0  && orderId  ? null : 
-                   <>
+                   <div className="cartWithItemForm">
                             <div>
                                 <p>Total:{cartPrice()}</p>
                             </div>
                             <Button  variant="contained" color="primary" onClick={removeCart}>borrar</Button>
-                            <BuyForm key='buyFormComponent'  nameInfo={nameInfo} emailInfo={emailInfo} phoneInfo={phoneInfo} addBuy={addBuy}/>
-                   </>
+                            {
+
+                            }
+                            <BuyForm key='buyFormComponent'  nameInfo={nameInfo} emailInfo={emailInfo} phoneInfo={phoneInfo} addBuy={addBuy} verifyEmailInfo={verifyEmailInfo}/>
+                   </div>
                
 
                }
                
                {allCart && orderId.length >= 1 ? 
                
-               <>
+               <div id="finishCart">
                <h1>Tu compra se ha realizado</h1>
                <p>Su numero de ID de su orden es: {orderId}</p>
                <Button  variant="contained" color="primary" onClick={orderIdAccepted}>Aceptar</Button>
 
-               </>
+               </div>
                
                
                : null
@@ -91,7 +101,7 @@ function Cart() {
                }
               
 
-        </>
+        </div>
     )
 }
 

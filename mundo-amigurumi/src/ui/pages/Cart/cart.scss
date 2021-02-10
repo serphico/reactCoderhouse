@@ -1,0 +1,43 @@
+#cartWithItemContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#cartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.cartWithItemResume {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartWithItemForm {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  button {
+    width: 20vw;
+  }
+
+  form {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#finishCart {
+  width: 100%;
+}
