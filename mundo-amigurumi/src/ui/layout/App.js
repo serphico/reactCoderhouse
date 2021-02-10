@@ -5,6 +5,7 @@ import Footer from './Footer';
 import {BrowserRouter} from 'react-router-dom';
 import {DbContextProvider} from "./ProductContext";
 import {CartContextPrivider} from "./CartContext"
+import './App.scss'
 
 
 const App = () => {
