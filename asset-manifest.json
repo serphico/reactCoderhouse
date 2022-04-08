@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/reactCoderhouse/mundo-amigurumi/static/css/main.7c63e1eb.chunk.css",
+    "main.js": "/reactCoderhouse/mundo-amigurumi/static/js/main.32d18e47.chunk.js",
+    "main.js.map": "/reactCoderhouse/mundo-amigurumi/static/js/main.32d18e47.chunk.js.map",
+    "runtime-main.js": "/reactCoderhouse/mundo-amigurumi/static/js/runtime-main.bd9a1244.js",
+    "runtime-main.js.map": "/reactCoderhouse/mundo-amigurumi/static/js/runtime-main.bd9a1244.js.map",
+    "static/css/2.a4f71c70.chunk.css": "/reactCoderhouse/mundo-amigurumi/static/css/2.a4f71c70.chunk.css",
+    "static/js/2.8afcee64.chunk.js": "/reactCoderhouse/mundo-amigurumi/static/js/2.8afcee64.chunk.js",
+    "static/js/2.8afcee64.chunk.js.map": "/reactCoderhouse/mundo-amigurumi/static/js/2.8afcee64.chunk.js.map",
+    "index.html": "/reactCoderhouse/mundo-amigurumi/index.html",
+    "static/css/2.a4f71c70.chunk.css.map": "/reactCoderhouse/mundo-amigurumi/static/css/2.a4f71c70.chunk.css.map",
+    "static/css/main.7c63e1eb.chunk.css.map": "/reactCoderhouse/mundo-amigurumi/static/css/main.7c63e1eb.chunk.css.map",
+    "static/js/2.8afcee64.chunk.js.LICENSE.txt": "/reactCoderhouse/mundo-amigurumi/static/js/2.8afcee64.chunk.js.LICENSE.txt",
+    "static/media/logo-m.4af0dad6.svg": "/reactCoderhouse/mundo-amigurumi/static/media/logo-m.4af0dad6.svg",
+    "static/media/logo.7cfad379.svg": "/reactCoderhouse/mundo-amigurumi/static/media/logo.7cfad379.svg",
+    "static/media/index.css": "/reactCoderhouse/mundo-amigurumi/static/media/rubik-latin-ext-400-normal.7161e8b3.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bd9a1244.js",
+    "static/css/2.a4f71c70.chunk.css",
+    "static/js/2.8afcee64.chunk.js",
+    "static/css/main.7c63e1eb.chunk.css",
+    "static/js/main.32d18e47.chunk.js"
+  ]
+}
